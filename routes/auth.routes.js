@@ -29,7 +29,7 @@ router.post(
       .isEmpty()
       .isLength({ min: 2, max: 8 }),
   ],
-  (req, res, next) => {
+  (authorize, (req, res, next) => {
     const errors = validationResult(req)
     console.log(req.body)
 
@@ -62,9 +62,9 @@ router.post(
           })
       })
     }
-  },
+  }
 )
-
+)
 // Sign-in
 router.post('/signin', (req, res, next) => {       //j'appelle ce route pour la connexion
   let getUser
@@ -166,7 +166,7 @@ router.route('/delete-user/:id').delete((req, res, next) => {
   })
 })
 
-router.route('/read-user/:id').get((req, res) => {
+router.route('/read-user/:id').get((req, res, next) => {
   userSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);

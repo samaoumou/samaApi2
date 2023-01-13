@@ -23,4 +23,3 @@ Node Token-based Authentication REST APIs tutorial with examples - learn how to 
 - Open other terminal run `mongod`
 
 Open API URL on [http://localhost:4000/api](http://localhost:4000/api)
-# samaApi2
